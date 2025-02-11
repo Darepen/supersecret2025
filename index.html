@@ -204,9 +204,13 @@
     });
     
     // After the customer's walking animation finishes, show the dialogue box.
-    document.getElementById('customer').addEventListener('animationend', function() {
-      document.getElementById('dialogue-box').style.display = 'block';
-    });
+  document.getElementById('customer').addEventListener('animationend', function() {
+    document.getElementById('dialogue-box').style.display = 'block';
+    const bgMusic = document.getElementById('bg-music');
+    bgMusic.volume = 0.33;
+    bgMusic.play().catch(error => console.log("Auto-play prevented:", error));
+  });
+
     
     // Start the game by hiding the dialogue and showing the game container.
     function startGame() {
